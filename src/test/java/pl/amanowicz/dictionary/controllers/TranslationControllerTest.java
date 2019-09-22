@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import pl.amanowicz.dictionary.model.TranslatedWord;
+import pl.amanowicz.dictionary.services.TranslationService;
 import pl.amanowicz.dictionary.utils.Language;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,9 +27,12 @@ class TranslationControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @Autowired
+    private TranslationService service;
+
     @Before
     public void setup() {
-        mockMvc = standaloneSetup(new TranslationController()).build();
+        mockMvc = standaloneSetup(new TranslationController(service)).build();
     }
 
     @Test
