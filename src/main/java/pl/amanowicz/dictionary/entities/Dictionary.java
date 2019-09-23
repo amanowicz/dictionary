@@ -18,12 +18,17 @@ public class Dictionary {
     @Column(name = "english_word", nullable = false)
     private String englishWord;
 
-    public Long getId() {
-        return id;
+    public Dictionary() {
     }
 
-    public void setId(Long id) {
+    public Dictionary(Long id, String polishWord, String englishWord) {
         this.id = id;
+        this.polishWord = polishWord;
+        this.englishWord = englishWord;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getPolishWord() {
